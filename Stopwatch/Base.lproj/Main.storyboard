@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Stopwatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,76 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <subviews>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Id7-fb-Iv0">
+                                <rect key="frame" x="0.0" y="556" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="ou4-oH-u8S"/>
+                                </constraints>
+                                <items>
+                                    <barButtonItem systemItem="stop" id="PMV-s3-9V1">
+                                        <connections>
+                                            <action selector="reset:" destination="BYZ-38-t0r" id="QUW-2C-BCi"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="4xy-i2-sAe"/>
+                                    <barButtonItem systemItem="play" id="uVO-c5-Atr">
+                                        <connections>
+                                            <action selector="play:" destination="BYZ-38-t0r" id="ZJb-oy-qz5"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="Nj0-UU-EYW"/>
+                                    <barButtonItem systemItem="pause" id="CYd-Ei-2YR">
+                                        <connections>
+                                            <action selector="pause:" destination="BYZ-38-t0r" id="lO0-qi-6zU"/>
+                                        </connections>
+                                    </barButtonItem>
+                                </items>
+                            </toolbar>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kkj-yA-vqk">
+                                <rect key="frame" x="0.0" y="34" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="44" id="9Ou-Oi-nV1"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="mqX-d0-8el"/>
+                                    <constraint firstAttribute="height" constant="44" id="sWp-pb-Kqz"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Stopwatch" id="HHe-NW-Udi"/>
+                                </items>
+                            </navigationBar>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lG-p3-jAO">
+                                <rect key="frame" x="25" y="252" width="550" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="72" id="VE7-2N-ucl"/>
+                                    <constraint firstAttribute="width" constant="550" id="cbr-D2-9I9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="88"/>
+                                <color key="textColor" red="0.99194461107254028" green="0.99615627527236938" blue="0.99600595235824585" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.79264706373214722" green="0.74083906412124634" blue="0.93950885534286499" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Id7-fb-Iv0" firstAttribute="leading" secondItem="Kkj-yA-vqk" secondAttribute="leading" id="7hb-EZ-sIg"/>
+                            <constraint firstItem="Id7-fb-Iv0" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="C4j-sg-KBC"/>
+                            <constraint firstItem="Id7-fb-Iv0" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Csg-nv-L46"/>
+                            <constraint firstItem="Kkj-yA-vqk" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EC6-p8-Pwh"/>
+                            <constraint firstItem="7lG-p3-jAO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="0.5" id="FPn-16-vqW"/>
+                            <constraint firstItem="Kkj-yA-vqk" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="14" id="HY6-os-5vz"/>
+                            <constraint firstItem="7lG-p3-jAO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-12" id="PKi-ss-MUr"/>
+                            <constraint firstItem="7lG-p3-jAO" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-12" id="Xa2-o3-qUi"/>
+                            <constraint firstAttribute="trailing" secondItem="Kkj-yA-vqk" secondAttribute="trailing" id="ibZ-de-bkW"/>
+                            <constraint firstItem="7lG-p3-jAO" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="0.5" id="p4W-1N-OPF"/>
+                            <constraint firstItem="Kkj-yA-vqk" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tfp-Uy-Cz5"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="timerLabel" destination="7lG-p3-jAO" id="dnJ-ya-KGp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="440" y="360"/>
         </scene>
     </scenes>
 </document>
